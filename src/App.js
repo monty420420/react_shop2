@@ -24,9 +24,11 @@ function App() {
     <div className='main-bg'></div>
     <div className='container'>
       <div className='row'>
-           <div className='col-md-4'>d</div>
-           <div className='col-md-4'>d</div>
-           <div className='col-md-4'>d</div>
+           <div className='col-md-4'>
+            <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="80%"></img>
+           </div>
+           <div className='col-md-4'><img src="https://codingapple1.github.io/shop/shoes2.jpg" width="80%"></img></div>
+           <div className='col-md-4'><img src="https://codingapple1.github.io/shop/shoes3.jpg" width="80%"></img></div>
       </div>
     </div>
     </div>
