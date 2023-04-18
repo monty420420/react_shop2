@@ -4,8 +4,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './App.css';
+import { useState } from 'react';
+import a from './data.js'; //import
 
 function App() {
+
+  let [shoes] = useState();
+
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
