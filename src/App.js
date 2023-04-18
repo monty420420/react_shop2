@@ -26,9 +26,18 @@ function App() {
       <div className='row'>
            <div className='col-md-4'>
             <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="80%"></img>
+            {/* <img src="/logo192.png" width="80%"></img> public폴더 이미지 불러오기 /이용*/}
+            <h4>상품명</h4>
+            <p>상품설명</p>
            </div>
-           <div className='col-md-4'><img src="https://codingapple1.github.io/shop/shoes2.jpg" width="80%"></img></div>
-           <div className='col-md-4'><img src="https://codingapple1.github.io/shop/shoes3.jpg" width="80%"></img></div>
+           <div className='col-md-4'><img src="https://codingapple1.github.io/shop/shoes2.jpg" width="80%"></img>
+           <h4>상품명</h4>
+            <p>상품설명</p>
+            </div>
+           <div className='col-md-4'><img src="https://codingapple1.github.io/shop/shoes3.jpg" width="80%"></img>
+           <h4>상품명</h4>
+            <p>상품설명</p>
+            </div>
       </div>
     </div>
     </div>
