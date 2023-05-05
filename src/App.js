@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import './App.css';
 import { useState } from 'react';
 import data from './data.js'
@@ -30,24 +29,31 @@ function App() {
     <div className='main-bg'></div>
     <div className='container'>
       <div className='row'>
-           <div className='col-md-4'>
-            <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="80%"></img>
-            {/* <img src="/logo192.png" width="80%"></img> public폴더 이미지 불러오기 /이용*/}
-            <h4>{shoes[0].title}</h4>
-            <p>{shoes[0].price}</p>
-           </div>
-           <div className='col-md-4'><img src="https://codingapple1.github.io/shop/shoes2.jpg" width="80%"></img>
-           <h4>{shoes[1].title}</h4>
-            <p>상{shoes[1].price}</p>
-            </div>
-           <div className='col-md-4'><img src="https://codingapple1.github.io/shop/shoes3.jpg" width="80%"></img>
-           <h4>{shoes[2].title}</h4>
-            <p>{shoes[2].price}</p>
-            </div>
+          {/* <Card shoes={shoes[0]} i={1}></Card>
+          <Card shoes={shoes[1]} i={2}></Card>
+          <Card shoes={shoes[2]} i={3}></Card> */}
+          {
+          shoes.map((a,i)=>{
+            return (
+              <Card shoes={shoes[i]} i={i+1}></Card>
+            )
+          })
+          }
       </div>
     </div>
     </div>
   );
 }
+function Card(props) {
+  return (
+    <div className='col-md-4'>
+    <img src={"https://codingapple1.github.io/shop/shoes"+ props.i + '.jpg'} width="80%"></img> {/*문자형으로 바꿔서 이용 */}
+    {/* <img src="/logo192.png" width="80%"></img> public폴더 이미지 불러오기 /이용*/}
+    <h4>{props.shoes.title}</h4>
+    <p>{props.shoes.price}</p>
+   </div>
+  )
+}
+
 
 export default App;
