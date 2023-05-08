@@ -54,7 +54,7 @@ function App() {
         </>
         }> 
      </Route>
-        <Route path='/detail' element={<Detail/>} />
+        <Route path='/detail/:id' element={<Detail shoes={shoes}/>} />  {/*detail에 useparam으로 :id값가져감 */}
 
         {/* nested Route */}
         <Route path='/about' element={<About/>}>
