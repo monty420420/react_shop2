@@ -24,7 +24,7 @@ function App() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link onClick={()=>{navigate('/')}}>Home</Nav.Link>
-            <Nav.Link onClick={()=>{navigate('/detail')}}>Detail</Nav.Link>
+            <Nav.Link onClick={()=>{navigate('/detail/0')}}>Detail</Nav.Link>
             {/* <Nav.Link onClick={()=>{navigate('-1')}}>뒤로가기</Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
@@ -54,8 +54,8 @@ function App() {
         </>
         }> 
      </Route>
-        <Route path='/detail/:id' element={<Detail shoes={shoes}/>} />  {/*detail에 useparam으로 :id값가져감 */}
-
+        <Route path='/detail/:id' element={<Detail shoes={shoes}/>} />  {/*detail에 useparam으로 :id값가져감*/}
+        
         {/* nested Route */}
         <Route path='/about' element={<About/>}>
           <Route path='member' element={<div>about의 nestedRotuer</div>}></Route>  {/* /about/member */} {/*about페이지 안의 페이지*/}
