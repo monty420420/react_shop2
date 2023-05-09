@@ -45,7 +45,7 @@ function App() {
           {
           shoes.map((a,i)=>{
             return (
-              <Card shoes={shoes[i]} i={i+1}></Card>  // 0부터 돌아서 i값에 +1을 해주면 1->2->3이렇게 된다
+              <Card shoes={shoes[i]} key={i} i={i+1}></Card>  // 0부터 돌아서 i값에 +1을 해주면 1->2->3이렇게 된다
             )
           })
           }
