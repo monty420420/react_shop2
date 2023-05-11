@@ -22,18 +22,18 @@ function Detail(props) {
 
     //input에 숫자이외의값 체크
 
-    let [notNum,setNotnum] = useState();
+    let [inputValue,setInputValue] = useState();
     useEffect(()=>{
-      if(isNaN(notNum) == true){
-        console.log(notNum);
-        window.alert("숫자만");
+      if(isNaN(inputValue) == true){
+        console.log(inputValue);
+        window.alert("숫자만 입력하세요");
       }
-    },[notNum])
+    },[inputValue])
 
   
-    const onChangeNum = (e) => {
-      setNotnum(e.target.value);
-    }
+    const handleInputChange = (event) => {
+      setInputValue(event.target.value);
+    };
     
 
 
@@ -50,7 +50,7 @@ function Detail(props) {
         <img src={"https://codingapple1.github.io/shop/shoes"+(product.id+1)+".jpg"} width="100%" /> {/*id가 0부터시작 하기 때문에 1을 더해줌*/}
       </div>
       <div className="col-md-6">
-        <input onChange={onChangeNum}></input>
+        <input type="text" onChange={handleInputChange}></input>
         <h4 className="pt-5">{product.title}</h4>
         <p>{product.content}</p>
         <p>{product.price}원</p>

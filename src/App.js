@@ -11,7 +11,7 @@ import axios from 'axios';
 
 function App() {
 
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
   // console.log(shoes[0].title);
 
   let navigate = useNavigate();
@@ -56,11 +56,14 @@ function App() {
         axios.get('https://codingapple1.github.io/shop/data2.json')
         .then((res)=>{
           console.log(res.data)
+          console.log(shoes)
+          let copy = [...shoes, ...res.data];
+          setShoes(copy);
         })
         .catch(()=>{
           console.log('실패시 콘솔로그')
         })
-       }}>버튼
+       }}>더보기
        </button>
         </>
         }> 
