@@ -19,8 +19,21 @@ function Detail(props) {
       } //여기 return은 useEffect동작전 실행
     },[]);   //[]안에가 변할때만 실행, 1회만 실행시키고싶으면 []빈칸으로두면됨
 
-    
 
+    //input에 숫자이외의값 체크
+
+    let [notNum,setNotnum] = useState();
+    useEffect(()=>{
+      if(isNaN(notNum) == true){
+        console.log(notNum);
+        window.alert("숫자만");
+      }
+    },[notNum])
+
+  
+    const onChangeNum = (e) => {
+      setNotnum(e.target.value);
+    }
     
 
 
@@ -31,13 +44,13 @@ function Detail(props) {
          {
           alert === true ? <div className="alert alert-warning">2초이내 구매시 할인</div> : null
          }
-
+         
     <div className="row">
       <div className="col-md-6">
         <img src={"https://codingapple1.github.io/shop/shoes"+(product.id+1)+".jpg"} width="100%" /> {/*id가 0부터시작 하기 때문에 1을 더해줌*/}
       </div>
       <div className="col-md-6">
-        <input></input>
+        <input onChange={onChangeNum}></input>
         <h4 className="pt-5">{product.title}</h4>
         <p>{product.content}</p>
         <p>{product.price}원</p>
