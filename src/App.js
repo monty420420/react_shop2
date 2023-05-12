@@ -15,7 +15,17 @@ function App() {
   // console.log(shoes[0].title);
 
   let navigate = useNavigate();
+  
+  const [isButtonVisible, setIsButtonVisible] = useState(true);
 
+  const handleClick = () => {
+    setIsButtonVisible(false);
+  }
+  
+  const buttonStyle = {
+    display: isButtonVisible ? 'block' : 'none'    
+  }
+  
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
@@ -52,13 +62,31 @@ function App() {
           }
         </div>
       </div>
-       <button onClick={()=>{
+       <button className='more-btn' style={buttonStyle} onClick={()=>{       
+        handleClick();
+
+        //get요청
         axios.get('https://codingapple1.github.io/shop/data2.json')
         .then((res)=>{
-          console.log(res.data)
-          console.log(shoes)
+          // console.log(res.data)
+          // console.log(shoes)
+          
+          //배열합치기
+          //1. spread연산자 사용방법
           let copy = [...shoes, ...res.data];
           setShoes(copy);
+          
+          //2. concat 사용방법
+          // let copy = shoes.concat(res.data);
+          // setShoes(copy);
+          
+
+         //post요청
+          // axios.post('url',{name : 'kim'})
+
+         //여러개 요청(전부 요청되었을때 실행해주세요)
+        //  Promise.all([axios.get('/url'), axios.get('/url2')])
+
         })
         .catch(()=>{
           console.log('실패시 콘솔로그')

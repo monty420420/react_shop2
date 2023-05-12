@@ -22,7 +22,7 @@ function Detail(props) {
 
     //input에 숫자이외의값 체크
 
-    let [inputValue,setInputValue] = useState();
+    let [inputValue,setInputValue] = useState("");  //""를 useState에 넣어야 alert가 detail페이지가 열렸을때 반응하지않음
     useEffect(()=>{
       if(isNaN(inputValue) == true){
         console.log(inputValue);
