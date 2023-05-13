@@ -44,14 +44,14 @@ function Detail(props) {
     },[visibility])
 
   return(
-    <div className={'container ' + visibility}> {/*classname에 클래스이름을 넣으며 조절 */}
-       
+    <div className="container"> {/*classname에 클래스이름을 넣으며 조절 */}
+     
          {
           alert === true ? <div className="alert alert-warning">2초이내 구매시 할인</div> : null
          }
-         
-    <div className="row">
-      <div className="col-md-6">
+         <div className={"detail "+ visibility}>
+         <div className="row">
+      <div className="col-md-6 ">
         <img src={"https://codingapple1.github.io/shop/shoes"+(product.id+1)+".jpg"} width="100%" /> {/*id가 0부터시작 하기 때문에 1을 더해줌*/}
       </div>
       <div className="col-md-6">
@@ -62,6 +62,8 @@ function Detail(props) {
         <button className="btn btn-danger">주문하기</button> 
       </div>  
     </div>
+         </div>
+
     <TabMenu />
     
   </div> 

@@ -6,11 +6,11 @@
   margin: 0 auto;
 }
 
-.container{
- display: none;
+.detail{
+ opacity: 0.5;
 }
 .visible{
-  display: block;
+  opacity: 1;
 }
 
 
