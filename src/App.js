@@ -8,6 +8,7 @@ import data from './data.js'
 import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './detail.js';
 import axios from 'axios';
+import Cart from './Cart.js';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
           <Nav className="me-auto">
             <Nav.Link onClick={()=>{navigate('/')}}>Home</Nav.Link>
             <Nav.Link onClick={()=>{navigate('/detail/0')}}>Detail</Nav.Link>
+            <Nav.Link onClick={()=>{navigate('/Cart')}}>Cart</Nav.Link>
             {/* <Nav.Link onClick={()=>{navigate('-1')}}>뒤로가기</Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
@@ -97,7 +99,7 @@ function App() {
         }> 
      </Route>
         <Route path='/detail/:id' element={<Detail shoes={shoes}/>} />  {/*detail에 useparam으로 :id값가져감*/}
-        
+        <Route path='/cart' element={<Cart />}/>
         {/* nested Route */}
         <Route path='/about' element={<About/>}>
           <Route path='member' element={<div>about의 nestedRotuer</div>}></Route>  {/* /about/member */} {/*about페이지 안의 페이지*/}
