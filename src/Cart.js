@@ -1,6 +1,6 @@
 import {Table} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeName } from './store.js'
+import { changeName, changeNum } from './store.js'
 
 function Cart() {
     
@@ -18,12 +18,13 @@ function Cart() {
     
     let state = useSelector((state)=> state) //store의 state를 사용할수있게해줌
     // console.log(state.cart[0]);
-    console.log(state.user);
+    // console.log(state.user);
    
     let dispatch = useDispatch()  //store.js에 요청하는 함수
     
     return(
         <div>
+            
      <Table>
         <thead>
             <tr>
@@ -48,7 +49,7 @@ function Cart() {
                         <td>{state.cart[i].count}</td>
                         <td><button 
                           onClick={()=>{
-                            dispatch(changeName())
+                            dispatch(changeNum(state.cart[i].id)) //count1증가를 위해 store.js에 있는 cart변수에서 id값을찾아서 changeNum함수실행 
                           }}
                             >+</button>
                         </td>

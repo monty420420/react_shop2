@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import data from './data.js'
 import Nav from 'react-bootstrap/Nav';
+import { addStock } from "./store.js";
+import { useDispatch } from "react-redux";
 
 function Detail(props) {
 
@@ -43,6 +45,8 @@ function Detail(props) {
          }, 1000)
     },[visibility])
 
+    let dispatch = useDispatch()
+
   return(
     <div className="container"> {/*classname에 클래스이름을 넣으며 조절 */}
      
@@ -59,7 +63,8 @@ function Detail(props) {
         <h4 className="pt-5">{product.title}</h4>
         <p>{product.content}</p>
         <p>{product.price}원</p>
-        <button className="btn btn-danger">주문하기</button> 
+        <button className="btn btn-danger" onClick={()=>{dispatch(addStock({id:2, name: 'Red', count : 1}))
+      }}>주문하기</button> 
       </div>  
     </div>
          </div>
