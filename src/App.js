@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import data from './data.js'
 import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './detail.js';
@@ -26,6 +26,24 @@ function App() {
   const buttonStyle = {
     display: isButtonVisible ? 'block' : 'none'    
   }
+  
+
+  //locaolStoarge
+  //let obj = {name : 'kim'}
+                                                    //object array자료형은 문자로 강제로 변환하면깨짐 하려면 json자료변환해보자
+  //localStorage.setItem('data',JSON.stringify(obj) ) //localStorage에 넣는방법//json이용해서 문자형식으로 저장가능 //형식 setItem(keyName, keyValue)
+  //console.log(obj)
+
+  //let get = localStorage.getItem('data') //꺼내기
+  //console.log(get.name) //이렇게하면 undefined나옴
+  //console.log(JSON.parse(get).name); //json문자형식을 다시 오브젝트변환하려면 parse사용
+  
+  // 최근본상품보기기능구현용
+  // useEffect(()=>{
+  //   localStorage.setItem('watched', JSON.stringify([]))
+  // },[])
+  
+
   
   return (
     <div className="App">
