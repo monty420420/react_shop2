@@ -9,6 +9,7 @@ import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './detail.js';
 import axios from 'axios';
 import Cart from './Cart.js';
+import { useQuery } from 'react-query';
 
 function App() {
 
@@ -43,6 +44,20 @@ function App() {
   //   localStorage.setItem('watched', JSON.stringify([]))
   // },[])
   
+  //react-query(실시간 대이터요청)
+  //reactQuery사용  
+  //장점1: 성공,실패,로딩중 쉽게 파악가능
+  //result.data(성공) result.error(실패)  result.isLoading(로딩중)  
+   let result = useQuery('name찾기', ()=>
+     axios.get('https://codingapple1.github.io/userdata.json').then((a)=>{
+      // console.log(a.data);
+      return a.data;
+     }),
+     {staleTime : 2000} //장점2: 자동으로 refetch해줌
+   )
+   //장점3: 실패시 자동으로 retry해주고 ajax로 가져온 결과는 state공유 안해도됨
+   
+  
 
   
   return (
@@ -58,6 +73,12 @@ function App() {
             <Nav.Link onClick={()=>{navigate('/Cart')}}>Cart</Nav.Link>
             {/* <Nav.Link onClick={()=>{navigate('-1')}}>뒤로가기</Nav.Link> */}
           </Nav>
+          <Nav className='ms-auto'>
+            {/* {result.isLoading ? '로딩중' : result.data.name} */} {/*isLoading일때 로딩중 아니면 해당데이터보여줌 */}
+            {result.isLoading && '로딩중'} {/*isLoading일때 로딩중 */}
+            {result.error && 'error'}   {/*error일때 에러 */}
+            {result.data && result.data.name} {/*data성공시 해당데이터 */}
+            </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

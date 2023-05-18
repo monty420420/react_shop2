@@ -49,14 +49,14 @@ function Detail(props) {
 
 
     //detail 상품id가져오기 최근본상품기능구현
-    useEffect(()=>{
-      let set = localStorage.setItem('watched', JSON.stringify([product.id])) //watched에 상품아이디넣기
-      console.log(product.id)
-      let get = localStorage.getItem('watched')
-      get = JSON.parse(get)
-      get.push(product.id)
-      console.log(get)
-    },[])
+    // useEffect(()=>{
+    //   let set = localStorage.setItem('watched', JSON.stringify([product.id])) //watched에 상품아이디넣기
+    //   console.log(product.id)
+    //   let get = localStorage.getItem('watched')
+    //   get = JSON.parse(get)
+    //   get.push(product.id)
+    //   console.log(get)
+    // },[])
 
   return(
     <div className="container"> {/*classname에 클래스이름을 넣으며 조절 */}
