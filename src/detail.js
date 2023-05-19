@@ -57,6 +57,18 @@ function Detail(props) {
     //   get.push(product.id)
     //   console.log(get)
     // },[])
+    
+    // async연습
+    let [count, setCount] = useState(0);
+    let[age, setAge] = useState(20);
+    
+    console.log(count)
+    
+    useEffect(()=>{
+      if(count != 0 && count < 3){
+        setAge(age+1)
+      }
+    },[count])
 
   return(
     <div className="container"> {/*classname에 클래스이름을 넣으며 조절 */}
@@ -64,6 +76,10 @@ function Detail(props) {
          {
           alert === true ? <div className="alert alert-warning">2초이내 구매시 할인</div> : null
          }
+         <div>안녕하십니까 전 {age}</div>
+         <button onClick={()=>{
+          setCount(count+1)
+         }}>누르면 한살먹기</button>
          <div className={"detail "+ visibility}>
          <div className="row">
       <div className="col-md-6 ">
