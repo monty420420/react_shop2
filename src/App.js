@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import data from './data.js'
 import {Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './detail.js';
@@ -137,7 +137,15 @@ function App() {
         </>
         }> 
      </Route>
-        <Route path='/detail/:id' element={<Detail shoes={shoes}/>} />  {/*detail에 useparam으로 :id값가져감*/}
+      
+        <Route 
+        path='/detail/:id' 
+        element={
+        <Suspense fallback={<div>로딩중입니다..</div>}> {/*suspense 페이지로딩전 보여주는페이지 */}
+        <Detail shoes={shoes}/>
+        </Suspense>
+      } />  {/*detail에 useparam으로 :id값가져감*/}
+      
         <Route path='/cart' element={<Cart />}/>
         {/* nested Route */}
         <Route path='/about' element={<About/>}>
